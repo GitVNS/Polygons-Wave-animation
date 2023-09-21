@@ -50,7 +50,7 @@ class _HexagonsState extends State<Hexagons>
             return Stack(
               fit: StackFit.expand,
               children: List.generate(
-                16,
+                16, //total number of shapes
                 (index) {
                   var anim = DelayTween(delay: index / 32, begin: 0.3, end: 0.7)
                       .animate(_controller)
@@ -89,8 +89,10 @@ class HexagonPainter extends CustomPainter {
 
     final path = Path();
 
-    for (int i = 0; i < 10; i++) {
-      final double angle = 36 * i * pi / 180.0;
+    var sidesForShape = 10; //change this to convert hexagon, pentagon, etc.
+
+    for (int i = 0; i < sidesForShape; i++) {
+      final double angle = (360 / sidesForShape) * i * pi / 180.0;
       final double x = centerX + radius * cos(angle);
       final double y = centerY + radius * sin(angle);
       if (i == 0) {
