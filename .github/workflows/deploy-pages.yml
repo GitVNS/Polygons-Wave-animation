@@ -24,7 +24,7 @@ jobs:
 
       # 3. Build Flutter Web
       - name: Build Flutter Web
-        run: flutter build web --release
+        run: flutter build web --release --base-href /Polygons-Wave-animation/
 
       # 4. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
